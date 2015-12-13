@@ -2,27 +2,64 @@
 <head>
 	<title>Talbot Trail Florist</title>
 	<style>
-		body { background-color: #666; color: #aaa; }
-		table { height: 100%; width: 100%; font-size: 16pt; }
-		td { vertical-align: middle; text-align: center; }
-		.logo > .address { margin-top: 0.75em; margin-bottom: 2em; }
-		.logo > .address > a { text-decoration: none; color: #aaa; }
-		.logo > .caption { margin: 2em; }
+		html { 
+			background: url(images/holiday_background.jpg) no-repeat center center fixed; 
+			-webkit-background-size: cover;
+			-moz-background-size: cover;
+			-o-background-size: cover;
+			background-size: cover;
+		}
+
+		table.page {
+			height: 100%;
+			width: 100%;
+			padding: 2em;
+		}
+
+		td {
+			vertical-align: middle;
+			text-align: center;
+		}
+
+		.content {
+			background-color: #fff;
+			border-radius: 10px;
+			box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.2);
+			padding: 2em;
+			font-size: 20pt;
+		}
+
+		.content a {
+			text-decoration: none;
+			color: #444;
+		}
+
+		.content .address {
+			margin: 0 3em;
+		}
 	</style>
 </head>
 <body>
-<table>
+<table class="page">
 	<tr>
-		<td class="logo">
-			<img src="images/talbot_trail_florist_logo.gif" alt="Talbot Trail Florist Logo"/>
-			<div class="address">
-				<a href="https://goo.gl/maps/QZWNMVkMtAF2" target="_blank" title="Click to view on Google Maps">
-					70b Talbot St N<br />
-					Essex, ON<br />
-					N8M 1A2
-				</a>
-			</div>
-			<div class="caption">Coming soon...</div>
+		<td>
+			<table class="content" align="center">
+				<tr>
+					<td>
+						<img src="images/talbot_trail_florist_logo_white.png" alt="Talbot Trail Florist Logo"/>
+					</td>
+					<td>
+						<h2>Now open!</h2>
+						<div class="address">
+							<a href="https://goo.gl/maps/QZWNMVkMtAF2" target="_blank" title="Click to view on Google Maps">
+								70b Talbot St N<br />
+								Essex, ON<br />
+								N8M 1A2
+							</a>
+						</div>
+					</td>
+				</tr>
+			</table>
 		</td>
 	</tr>
 </table>
