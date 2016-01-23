@@ -1,0 +1,277 @@
+@import (inline) "normalize-3.0.2.css";
+
+@bg-image-url: url("../images/backgrounds/flowers.jpg");
+@logo-image-url: url("../images/talbot-trail-florist-logo-transparent.png");
+
+@base-border-radius: 5px;
+@base-margin: 1em;
+
+@page-border-margin: @base-margin;
+@page-border-width: @base-margin / 2;
+
+@page-content-offset: @page-border-margin * 2 + @page-border-width;
+
+@nav-width: 15em;
+
+@accent: rgb(206, 154, 209); //#ce9ad1;
+@accent-pale: rgba(206, 154, 209, 0.25); //#ce9ad1;
+
+@link: #00a651;
+
+@base-shadow-color: rgba(0, 0, 0, 0.5);
+@small-box-shadow: 0 0.4rem 0.5rem -0.3rem @base-shadow-color;
+@base-box-shadow: 5px 5px 6px rgba(0, 0, 0, 0.25);
+
+@button-border: rgba(111, 168, 190, 0.3);
+@button-hover-border: rgb(111, 168, 190);
+
+@button-bg-fallback: #111;
+@button-bg: rgba(255, 255, 255, 0.02);
+
+@button-hover-bg-fallback: #444;
+@button-hover-bg: rgba(255, 255, 255, 0.1);
+
+@font-sans: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+
+@font-size-main: 20px;
+@font-size-buttons: @font-size-main;
+@font-size-heading: 36pt;
+@font-size-subheading: 24pt;
+@font-size-panel-label: 20px;
+@font-size-panel-body: 18px;
+
+@body-min-height: 615px;
+@body-border-min-height: @body-min-height - 40px;
+@page-content-min-height: @body-min-height - 100px;
+
+// http://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/
+html {
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+*, *:before, *:after {
+	-moz-box-sizing: inherit;
+	-webkit-box-sizing: inherit;
+	box-sizing: inherit;
+}
+
+.clearfix:after, .clearfix:before {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+.bg-cover() {
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+
+.centered() {
+	display: inline-block;
+	vertical-align: middle;
+	text-align: center;
+}
+
+.no-select() {
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	-o-user-select: none;
+	user-select: none;
+}
+
+.frosted-panel() {
+	background-color: #fff;
+	background-color: rgba(255, 255, 255, 0.92);
+	border-radius: @base-border-radius;
+}
+
+html {
+	height: 100%;
+	background: @bg-image-url no-repeat center center fixed; 
+	.bg-cover();
+}
+
+body {
+	color: @accent;
+	height: 100%;
+	font-family: @font-sans;
+	font-size: @font-size-main;
+	min-height: @body-min-height;
+}
+
+// page border
+body:after {
+	content: '';
+	position: absolute;
+	top: @page-border-margin;
+	left: @page-border-margin;
+	right: @page-border-margin;
+	bottom: @page-border-margin;
+	border: @page-border-width double @accent;
+	border-radius: @base-border-radius;
+	z-index: -1;
+	min-height: @body-border-min-height;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-weight: 300;
+	font-variant: small-caps;
+	margin-top: 0;
+}
+
+h1 {
+	font-size: @font-size-heading;
+}
+
+h2 {
+	font-size: @font-size-subheading;
+}
+
+div, p, span, label {
+	font-size: @font-size-main;
+}
+
+a {
+	color: @link;
+	text-decoration: none;
+}
+
+.rounded-logo {
+	@circle-diameter: 4em;
+
+	display: inline-block;
+
+	width: @circle-diameter;
+	height: @circle-diameter;
+	border-radius: @circle-diameter / 2;
+	border: 2px solid @accent;
+
+	background-image: @logo-image-url;
+	background-size: 70% 70%;
+	background-repeat: no-repeat;
+	background-position: center;
+
+	box-shadow:
+		inset 1px 1px 3px rgba(0, 0, 0, 0.5),
+		inset 0 0 2px 1px rgba(0, 0, 0, 0.05),
+		@small-box-shadow;
+}
+
+/*
+  this element gives us the ability to vertically center blocks of unknown height
+  http://css-tricks.com/centering-in-the-unknown/
+*/
+header:before {
+	content: '';
+	display: inline-block;
+	height: 100%;
+	vertical-align: middle;
+	margin-right: -0.25em; /* Adjusts for spacing */
+}
+
+header {
+	.frosted-panel();
+
+	position: absolute;
+	left: @page-content-offset;
+	top: @page-content-offset;
+	bottom: @page-content-offset;
+	width: @nav-width;
+
+	text-align: center;
+	font-variant: small-caps;
+	border: 1px solid @accent-pale;
+
+	min-height: @page-content-min-height;
+}
+
+nav {
+	.centered();
+
+	& > h1 {
+		margin-top: 0;
+		padding: @base-margin;
+	}
+
+	& > ul {
+		padding: 0;
+
+		& > li {
+			.no-select();
+
+			display: block;
+			margin: @base-margin;
+			cursor: pointer;
+			opacity: 0.7;
+
+			border-top: 1px solid transparent;
+			border-bottom: 1px solid transparent;
+
+			&:hover {
+				opacity: 1;
+				background-color: @accent-pale;
+			}
+
+			&.selected {
+				opacity: 1;
+				border-top-color: @accent;
+				border-bottom-color: @accent;
+			}
+
+			& > .icon {
+				margin-right: 0.4em;
+				display: none;
+			}
+		}
+	}
+}
+
+article {
+	position: absolute;
+	overflow: auto;
+	top: @page-content-offset;
+	right: @page-content-offset;
+	bottom: @page-content-offset;
+	left: @page-content-offset + @nav-width + @base-margin;
+	text-align: center;
+
+	min-height: @page-content-min-height;
+}
+
+/*
+  this element gives us the ability to vertically center blocks of unknown height
+  the text-align center above adds horizontal centering into the mix
+  http://css-tricks.com/centering-in-the-unknown/
+*/
+article:before {
+	content: '';
+	display: inline-block;
+	height: 100%;
+	vertical-align: middle;
+	margin-right: -0.25em; /* Adjusts for spacing */
+}
+
+.panel {
+	.centered();
+	.frosted-panel();
+
+	border: 1px solid @accent-pale;
+	padding: @base-margin * 3;
+
+	h1, h2, h3, h4, h5, h6 {
+		margin-bottom: @base-margin;
+		border-bottom: 1px solid;
+	}
+
+	.map > img {
+		border: 1px solid @accent-pale;
+		border-radius: @base-border-radius;
+		box-shadow: @base-box-shadow;
+		margin-top: @base-margin;
+	}
+}
