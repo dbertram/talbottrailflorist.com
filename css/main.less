@@ -16,7 +16,7 @@
 @accent: rgb(206, 154, 209); //#ce9ad1;
 @accent-pale: rgba(206, 154, 209, 0.25); //#ce9ad1;
 
-@link: #00a651;
+@alt-accent: #00a651;
 
 @base-shadow-color: rgba(0, 0, 0, 0.5);
 @small-box-shadow: 0 0.4rem 0.5rem -0.3rem @base-shadow-color;
@@ -24,12 +24,6 @@
 
 @button-border: rgba(111, 168, 190, 0.3);
 @button-hover-border: rgb(111, 168, 190);
-
-@button-bg-fallback: #111;
-@button-bg: rgba(255, 255, 255, 0.02);
-
-@button-hover-bg-fallback: #444;
-@button-hover-bg: rgba(255, 255, 255, 0.1);
 
 @font-sans: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
 
@@ -43,6 +37,9 @@
 @body-min-height: 615px;
 @body-border-min-height: @body-min-height - 40px;
 @page-content-min-height: @body-min-height - 100px;
+
+@article-min-width: 750px;
+@body-border-min-width: @article-min-width + 380px;
 
 // http://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/
 html {
@@ -116,6 +113,7 @@ body:after {
 	border-radius: @base-border-radius;
 	z-index: -1;
 	min-height: @body-border-min-height;
+	min-width: @body-border-min-width;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -137,7 +135,7 @@ div, p, span, label {
 }
 
 a {
-	color: @link;
+	color: @alt-accent;
 	text-decoration: none;
 }
 
@@ -241,6 +239,7 @@ article {
 	text-align: center;
 
 	min-height: @page-content-min-height;
+	min-width: @article-min-width;
 }
 
 /*
@@ -268,10 +267,18 @@ article:before {
 		border-bottom: 1px solid;
 	}
 
-	.map > img {
+	img:not(.no-border) {
 		border: 1px solid @accent-pale;
 		border-radius: @base-border-radius;
 		box-shadow: @base-box-shadow;
 		margin-top: @base-margin;
+	}
+
+	figure {
+		margin: 0 inherit;
+	}
+
+	figcaption {
+		color: @alt-accent;
 	}
 }
