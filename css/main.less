@@ -1,4 +1,5 @@
 @import (inline) "normalize-3.0.2.css";
+@import (inline) "simple-slideshow-styles.css";
 
 @bg-image-url: url("../images/backgrounds/flowers.jpg");
 @logo-image-url: url("../images/talbot-trail-florist-logo-transparent.png");
@@ -255,6 +256,22 @@ article:before {
 	margin-right: -0.25em; /* Adjusts for spacing */
 }
 
+.figcaption-styles() {
+	position: absolute;
+	bottom: 0.5em;
+	left: 0;
+	right: 0;
+
+	padding: 0.5em 1em;
+
+	color: @accent;
+	font-size: 0.8em;
+	background-color: @accent-pale;
+
+	border-top: 1px solid @accent;
+	border-radius: 0;
+}
+
 .panel {
 	.centered();
 	.frosted-panel();
@@ -279,6 +296,31 @@ article:before {
 	}
 
 	figcaption {
-		color: @alt-accent;
+		.figcaption-styles();
 	}
+
+	.bss-slides {
+
+		.bss-prev, .bss-next {
+			color: @accent;
+			background-color: @accent-pale;
+			border: 1px solid @accent;
+		}
+
+		.bss-prev {
+			border-left: none;
+		}
+
+		.bss-next {
+			border-right: none;
+		}
+
+		figcaption {
+			.figcaption-styles();
+		}
+	}
+}
+
+.no-js figure, .old-ie figure {
+	position: relative;
 }

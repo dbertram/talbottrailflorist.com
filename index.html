@@ -37,15 +37,16 @@
 
   <!--[if lt IE 9]>
     <script src="scripts/html5shiv-printshiv.min.js"></script>
+    <script>window.oldIe = true;</script>
   <![endif]-->
 </head>
-<body>
+<body class="no-js">
   <header>
-    <nav style="display: none;">
+    <nav>
       <h1>
         <a class="rounded-logo" href="mailto:info@talbottrailflorist.com" rel="author" alt="Talbot Trail Florist in Essex Ontario"></a>
       </h1>
-      <ul>
+      <ul class="js-show-on-load" style="display: none;">
         <li id="btn-home" class="selected" title="Welcome to Talbot Trail Florist!">Home</li>
         <li id="btn-contact-info" title="Contact info &amp; hours">Contact Info</li>
         <li id="btn-gallery" title="Photo Gallery">Photo Gallery</li>
@@ -53,7 +54,7 @@
     </nav>
   </header>
   <article>
-    <div id="home" class="panel js-welcome">
+    <div id="home" class="panel js-welcome-panel">
       <div class="panel-content">
         <a href="https://goo.gl/maps/vrsUAwKmsat" target="_blank" title="Click to view our location on Google Maps">
           <img class="no-border" src="images/talbot-trail-florist-logo-transparent.png" alt="Welcome to Talbot Trail Florist! Located in downtown Essex, Ontario." />
@@ -84,48 +85,49 @@
       <div class="panel-content js-slideshow">
         <figure>
           <img src="images/gallery/flowers-gallery-01.jpg" />
-          <figcaption>Caption goes here</figcaption>
+          <figcaption>Caption goes here 1</figcaption>
         </figure>
         <figure>
           <img src="images/gallery/flowers-gallery-02.jpg" />
-          <figcaption>Caption goes here</figcaption>
+          <figcaption>Caption goes here 2</figcaption>
         </figure>
         <figure>
           <img src="images/gallery/flowers-gallery-03.jpg" />
-          <figcaption>Caption goes here</figcaption>
+          <figcaption>Caption goes here 3</figcaption>
         </figure>
         <figure>
           <img src="images/gallery/flowers-gallery-04.jpg" />
-          <figcaption>Caption goes here</figcaption>
+          <figcaption>Caption goes here 4</figcaption>
         </figure>
         <figure>
           <img src="images/gallery/flowers-gallery-05.jpg" />
-          <figcaption>Caption goes here</figcaption>
+          <figcaption>Caption goes here 5</figcaption>
         </figure>
         <figure>
           <img src="images/gallery/flowers-gallery-06.jpg" />
-          <figcaption>Caption goes here</figcaption>
+          <figcaption>Caption goes here 6</figcaption>
         </figure>
         <figure>
           <img src="images/gallery/flowers-gallery-07.jpg" />
-          <figcaption>Caption goes here</figcaption>
+          <figcaption>Caption goes here 7</figcaption>
         </figure>
         <figure>
           <img src="images/gallery/flowers-gallery-08.jpg" />
-          <figcaption>Caption goes here</figcaption>
+          <figcaption>Caption goes here 8</figcaption>
         </figure>
         <figure>
           <img src="images/gallery/flowers-gallery-09.jpg" />
-          <figcaption>Caption goes here</figcaption>
+          <figcaption>Caption goes here 9</figcaption>
         </figure>
         <figure>
           <img src="images/gallery/flowers-gallery-10.jpg" />
-          <figcaption>Caption goes here</figcaption>
+          <figcaption>Caption goes here 10</figcaption>
         </figure>
       </div>
     </div>
   </article>
   <script src="scripts/jquery-1.12.0.min.js"></script>
+  <script src="scripts/better-simple-slideshow.min.js"></script>
   <script src="scripts/main.js"></script>
 </body>
 </html>

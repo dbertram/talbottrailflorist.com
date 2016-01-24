@@ -1,5 +1,5 @@
 $(function() {
-	var currentPanel = $('.js-welcome');
+	var currentPanel = $('.js-welcome-panel');
 	var welcomeTimeoutId = setTimeout(showStartPanel, 5000);
 
 	function menuClick() {
@@ -36,8 +36,25 @@ $(function() {
 		$('#btn-' + $('.js-start-panel').attr('id')).trigger('click');
 	}
 
-	$('.panel:not(.js-welcome)').hide();
-	$('nav').fadeIn();
+	$('body')
+		.removeClass('no-js')
+		.toggleClass('old-ie', !!window.oldIe)
+		.on('click', 'nav li', menuClick)
+	;
 
-	$('body').on('click', 'nav li', menuClick);
+	$('.panel').hide();
+	$('.js-show-on-load, .js-welcome-panel').fadeIn();
+
+	if (!window.oldIe) {
+		$('.js-slideshow').addClass('bss-slides');
+
+		makeBSS('.bss-slides', {
+			auto: {
+				speed: 2500,
+				pauseOnHover: true
+			},
+			fullScreen: false,
+			swipe: false
+		});
+	}
 });
