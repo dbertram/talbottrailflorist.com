@@ -67,6 +67,13 @@ html {
 	background-size: cover;
 }
 
+.opacity(@opacity) {
+	@ms-opacity: @opacity * 100;
+	filter: alpha(opacity=@ms-opacity);
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=@{ms-opacity})";
+	opacity: @opacity;
+}
+
 .centered() {
 	display: inline-block;
 	vertical-align: middle;
@@ -206,18 +213,18 @@ nav {
 			display: block;
 			margin: @base-margin;
 			cursor: pointer;
-			opacity: 0.7;
+			.opacity(0.7);
 
 			border-top: 1px solid transparent;
 			border-bottom: 1px solid transparent;
 
 			&:hover {
-				opacity: 1;
+				.opacity(1);
 				background-color: @accent-pale;
 			}
 
 			&.selected {
-				opacity: 1;
+				.opacity(1);
 				border-top-color: @accent;
 				border-bottom-color: @accent;
 			}
