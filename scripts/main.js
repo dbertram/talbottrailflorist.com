@@ -1,13 +1,7 @@
 $(function() {
 	var currentPanel = $('.js-welcome-panel');
-	var welcomeTimeoutId = setTimeout(showStartPanel, 5000);
 
 	function menuClick() {
-		if (welcomeTimeoutId != null) {
-			clearTimeout(welcomeTimeoutId);
-			welcomeTimeoutId = null;
-		}
-
 		var $el = $(this);
 
 		$('nav li').removeClass('selected');
@@ -30,10 +24,6 @@ $(function() {
 		} else {
 			showNextPanel();
 		}
-	}
-
-	function showStartPanel() {
-		$('#btn-' + $('.js-start-panel').attr('id')).trigger('click');
 	}
 
 	$('body')
